@@ -30,11 +30,14 @@ public class Album {
     /**
      * Review the other model classes to see examples of annotations that link entities.
      */
+    @ManyToOne
+    @JoinColumn(name = "artist_fk")
     private Artist artist;
 
     /**
      * Review the other model classes to see examples of annotations that link entities.
      */
+    @OneToMany(mappedBy = "album", fetch = FetchType.LAZY)
     private List<Song> songs;
 
     public Album(String title) {
